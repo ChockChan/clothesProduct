@@ -30,6 +30,7 @@ public class AdminService {
 
     public String addSupervisor(Supervisor supervisor){
         supervisor.setSupervisorauthority(new Supervisorauthority());
+        supervisor.setPassword("123456");
         supervisorDao.save(supervisor);
         return "0";
     }
