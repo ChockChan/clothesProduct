@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>服装生产管理系统</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
+    <link href="css/login.css" rel="stylesheet" type="text/css">   
+    <link href="css/xm-common.css" rel="stylesheet" type="text/css">
+    
+    <script src="http://v3.bootcss.com/assets/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="login">
+    <!--头部-->
+    <header>
+      <div class="container">
+          <div class="logo">
+            <div>欢迎使用服装生产管理系统</div>
+          </div>      
+      </div>
+    </header>
+    <!--头部 END-->
+    <div class="login-wrapper">
+      <div class="container">
+        <div class="login-box">
+          <!--登录/注册选择-->
+          <!-- <ul class="login-tabs">
+            <li class="active"><a href="javascript:void(0)">登录</a></li>
+            <li><a href="register.html">管理员登录</a></li>
+          </ul> -->
+          <!--登录/注册选择 END-->
+          <!--登录-->
+          <div id="loginPane" class="login-panel">
+          <h4 class="title">欢迎登录</h4>
+          
+          <form name="myForm" id="myForm" >
+            <div class="login-notice" id="Enr" style="display:none;"></div>
+            <div class="form-group">
+              <div class="email_autocomplete">
+                <label for="userName" class="sr-only">用户名</label>
+                <input type="text" id="userName" name="userName" class="form-control" autocomplete="off"  value="" config="{width:304,height:34}" placeholder="用户名" required>
+                   <!--  nodetype="email"  -->       
+              </div>      
+            </div>
+            <div class="form-group">
+              <label for="userPassword" class="sr-only">密码</label>
+              <input type="password" id="userPassword" name="userPassword" class="form-control" placeholder="密码" required>            
+            </div>
+            <div class="form-group" id="userTypeChoese">
+              <label class="userTypeChoese"><input  type="radio" class="admin" name="userType"  value="admin" />管理员</label>
+              <label class="userTypeChoese"><input  type="radio" class="supervisor" name="userType" value="supervisor" checked />主管</label>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-lg btn-default btn-block" type="button" id="dosubmit" onclick="return checkUserLogin();">登 录</button>
+              <button class="btn btn-lg btn-default btn-block" type="button" id="submiting" disabled="disabled" style="display:none;">登 录 中···</button>            
+            </div>
+          </div>
+          <!--登录 END-->
+          </form>
+        </div>
+      </div> <!-- /container -->
+    </div>
+    <!--尾部-->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="widget">
+              <h4 class="title">关于我们</h4>
+              <div class="contactUs">
+                <p>地址：华南理工大学C10-529</p>
+                <p>单位：华南理工大学软件学院</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="widget">
+              <h4 class="title">联系我们</h4>
+              <div class="contactUs">
+                 <p>电话：18814122776</p>
+                 <p>邮箱：764657283@qq.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <span>Copyright &copy; 李耀松</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--尾部 END-->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://v3.bootcss.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <!-- <script src="js/mailautocomplete.js" type="text/javascript"  charset="utf-8"></script> -->
+    <!-- <script src="js/xm-util.js" type="text/javascript"></script>  -->
+    <script src="js/utils.js"></script>   
+    <script src="js/login.js" type="text/javascript"></script>
+  </body>
+</html>

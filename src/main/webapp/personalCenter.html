@@ -1,0 +1,150 @@
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%> -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>服装生产管理系统</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<style>
+    
+</style>
+
+</head>
+
+<body>
+    <!--下面是顶部导航栏的代码-->
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">服装生产管理系统</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="supervisorManagement.html">主管账户管理</a></li>
+                <li><a href="authorityManagement.html">主管权限管理</a></li>
+        <!--         <li><a href="prodctionMonitor.html">生产进度监控</a></li> -->
+            </ul>
+            <a class="ys-nav-right navbar-right" href="#" data-toggle="modal" data-target="#exit-modal">退出</a>
+            <a class="ys-nav-right navbar-right" href="personalCenter.html">个人中心</a>
+        </div>
+    </nav>
+
+<!-- 模块功能 -->
+<div class="container-fluid wrap">
+    <div class="row">
+        <!-- 左侧子功能导航栏--> 
+
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="#">个人中心</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="tablist" class="myTab">
+                <li class="active"><a href="#personalInfo"  role="tab" data-toggle="tab">个人信息</a></li>
+                <li><a href="#pwdChange" role="tab" data-toggle="tab">密码修改</a></li>
+                <!-- <li><a href="#pwdQuestion" role="tab" data-toggle="tab">密保问题</a></li> -->
+            </ul>
+           <!--  <ul class="nav nav-sidebar">
+                <li><a href="#">设置</a></li>
+                <li><a href="#">帮助</a></li>
+            </ul> -->
+        </div>
+        <!-- 右侧操作区 -->
+        <div class="tab-content col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div class="tab-pane active " id="personalInfo">
+                <h1 class="page-header ">个人信息</h1>
+                <form class="personalInfoForm personalForm" action="">
+                     <div class="row">
+                        <label>用户名</label>
+                        <input type="text" name="userName" class="userName" placeholder="管理员" readonly>
+                        <label>姓名</label>
+                        <input type="text" name="name" class="name" placeholder="李耀松" readonly>
+                    </div>
+                    <div class="row">
+                        <label>账户类型</label>
+                        <input type="text" name="userType" class="userType" placeholder="管理员" readonly>
+                        <label>职位</label>
+                        <input type="text" name="position" class="position" placeholder="IT职员" readonly>
+                    </div>
+                    <div class="row">
+                        <label>电话</label>
+                        <input type="text" name="tel" class="tel" placeholder="18814122776" readonly>
+                        <label>邮箱</label>
+                        <input type="text" name="email" class="email" placeholder="764657283@qq.com" readonly>
+                    </div>
+                    <div class="row">
+                        <label>生日</label>
+                        <input type="text" name="birthday" class="birthday" placeholder="1993-01-01" readonly>
+                        <label>籍贯</label>
+                        <input type="text" name="hometown" class="hometown" placeholder="广东汕头" readonly>
+                    </div>
+                    <div class="row">
+                        <label class="status-label">账户状态</label>
+                        <input type="text" name="status" class="status" placeholder="在职" readonly>
+                        <label class="address-label">地址</label>
+                        <textarea name="address" class="address" placeholder="广东省广州市大学城华南理工大学C10-529" readonly></textarea>
+                    </div>
+                    <div class="row">
+                        <button type="button" class="btn btn-primary modifyBtn" >修改</button>
+                        <button type="button" class="btn btn-primary saveBtn">保存</button>
+                        <button type="button" class="btn btn-primary cancelBtn">取消</button>
+                    </div>
+                </form>
+                <!-- <div class="row">
+                    <label></label>
+                    <input type="text" name="" id="" placeholder="" readonly>
+                </div> -->
+            </div>
+            <div class="tab-pane" id="pwdChange">
+                <form class="pwdChangeForm">
+                    <h1 class="page-header ">密码修改</h1>
+                    <div class="row">
+                        <label>原密码</label>
+                        <input type="text" name="oldpwd" class="oldpwd" placeholder="请输入原密码" >
+                    </div>
+                    <div class="row">
+                        <label>新密码</label>
+                        <input type="text" name="newpwd" class="newpwd1" placeholder="请输入新密码" >
+                    </div>
+                    <div class="row">
+                        <label>新密码</label>
+                        <input type="text" name="newpwd" class="newpwd2" placeholder="请再次输入新密码" >
+                    </div>
+                    <button class="btn btn-primary modifyPwdBtn">确认修改</button>
+                </form>
+            </div>
+            <!-- <div class="tab-pane" id="pwdQuestion">
+                <h1 class="page-header">
+                密保问题设置
+                </h1>    
+            </div> -->                 
+        </div>
+    </div>
+</div>
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/personalControl.js"></script>
+</body>
+</html>
+
+
+

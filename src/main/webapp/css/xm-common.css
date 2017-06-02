@@ -1,0 +1,315 @@
+====================================================*/
+/* common */
+/*====================================================
+	common styles
+====================================================*/
+
+html,
+body {
+  font-family: Microsoft YaHei;
+  color: #505050;
+  background: #fff;
+  position: relative;
+}
+
+h1 {
+  font-size: 3em;
+}
+h2 {
+  font-size: 2.5em;
+}
+h3 {
+  font-size: 2em;
+}
+h4 {
+  font-size: 1.5em;
+}
+h5 {
+  font-size: 1em;
+}
+h6 {
+  font-size: 0.75em;
+}
+a {
+  color: #000;
+  outline: none;
+}
+a:hover {
+  color: #1E90FF;
+  text-decoration:none; 
+}
+a:active,
+a:focus,
+a img {
+  outline: none;
+}
+label {
+  font-weight: 500;
+}
+.btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+.btn-default {
+	border: 1px solid #00bfff;
+	background: #00bfff;
+	color: #ffffff;
+	-webkit-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+.btn-default:hover {
+  border: 1px solid #1E90FF;
+  background: #1E90FF;
+  color: #ffffff;
+}
+.btn-default:focus,
+.btn-default:focus {
+  border: 1px solid #1E90FF;
+  background: #1E90FF;
+  color: #ffffff;
+  outline: none;
+}
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  border: 1px solid #1E90FF;
+  background: #1E90FF;
+  color: #ffffff;
+}
+.btn-default[disabled] {
+  border: 1px solid #1E90FF;
+  background: #1E90FF;
+  color: #ffffff;
+}
+.btn-default:active:hover,
+.btn-default.active:hover,
+.open > .dropdown-toggle.btn-default:hover,
+.btn-default:active:focus,
+.btn-default.active:focus,
+.open > .dropdown-toggle.btn-default:focus,
+.btn-default:active.focus,
+.btn-default.active.focus,
+.open > .dropdown-toggle.btn-default.focus {
+  color: #fff;
+  background-color: #1E90FF;
+  border-color: #1E90FF;
+}
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  background-image: none;
+}
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+fieldset[disabled] .btn-default:focus,
+.btn-default.disabled.focus,
+.btn-default[disabled].focus,
+fieldset[disabled] .btn-default.focus {
+  background-color: #1E90FF;
+  border-color: #1E90FF;
+}
+input[type="search"],
+input[type="text"],
+input[type="url"],
+input[type="email"],
+input[type="password"],
+textarea {
+  padding: 7px 7px;
+  border: 1px solid #ebebeb;
+  border-radius: 2px;
+  -webkit-transition: all 0.2s;
+       -o-transition: all 0.2s;
+          transition: all 0.2s;
+}
+.form-control {
+  padding: 6px;
+  border-radius: 2px;
+  border: 1px solid #ebebeb;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="url"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+.form-control:focus,
+textarea:focus {
+  border: 1px solid #00bfff;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; 
+}
+blockquote {
+  border-left: 4px solid #00bfff;
+}
+pre {
+  padding: 0;
+  background: none;
+  border: none;
+}
+::-moz-selection {
+  color: #ffffff;
+  background: #00bfff;
+  text-shadow: none;
+}
+::selection {
+  color: #ffffff;
+  background: #00bfff;
+  text-shadow: none;
+}
+.text-purple {
+  color: #1E90FF;
+}
+a.text-purple:focus,
+a.text-purple:hover {
+  color: #1E90FF;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* header */
+/*====================================================
+	header
+====================================================*/
+.navbar-purple {
+  margin-top: 30px;
+  background: #9373AD;
+  border-color: #9373AD; 
+}
+.navbar-purple span {
+  font-family: Microsoft YaHei;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+}
+.navbar-white {
+  background: #fff;
+  border-color: #fff;
+}
+.icon-large {
+  font-size: 20px!important;
+}
+.navbar-purple ul {
+    margin: 0 auto;
+    width: 100%;
+}
+.navbar-purple > ul > li {
+    font-size: 16px;
+    text-align: center;
+    width: 14.28%;
+}
+li.dropdown:hover>.dropdown-menu,ul.dropdown-menu:hover{
+  display: block;
+}
+
+ .logo{
+  text-align: center;
+  font-size:40px;
+
+  color: transparent;
+  background-color : black;
+  text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px;
+  -webkit-background-clip : text;
+ }
+ .logo>div{
+  width: 60%;
+  margin: 0 auto;
+  margin-top:10px;
+ }
+.logo img {
+    width: 100%;
+}
+.search {
+  float: left;
+
+}
+
+.search .input-group .form-control:first-child {
+  border-radius: 0;
+}
+.search .input-group .input-group-btn .btn {
+  font-size: 16px;
+  padding: 5px 24px;
+  padding: 5px 24px 4px\0;
+  border-radius: 0;
+}
+/* content */
+/*====================================================
+  content
+====================================================*/
+.pagination>.active>a, 
+.pagination>.active>a:focus, 
+.pagination>.active>a:hover, 
+.pagination>.active>span, 
+.pagination>.active>span:focus, 
+.pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #a044ff;
+    border-color: #a044ff;
+}
+
+/* footer */
+/*====================================================
+	footer
+====================================================*/
+footer {
+  background: #fff;
+  padding: 35px 0 0;
+  color: #000;
+}
+.widget {
+  margin-bottom: 30px;
+}
+.widget .title {
+  font-size: 18px;
+  margin-top: 0;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #ebebeb;
+  margin-bottom: 21px;
+  position: relative;
+}
+.widget .title:after {
+  content: "";
+  width: 90px;
+  height: 1px;
+  background:   #1E90FF;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+}
+footer .widget .aboutUs p {
+  margin: 0 .5em;
+}
+footer .widget .contactUs i {
+  margin-right: 20px;
+}
+footer .col-sm-12 {
+  text-align: right;
+}
+footer span {
+  font-size: 13px;
+  text-align: center;
+  margin:0 auto;
+}
+div.logo img:hover{
+  transform:scale(1.2,1.2);
+  -ms-transform:scale(1.2,1.2);
+  -moz-transform:scale(1.2,1.2);
+  -webkit-transform:scale(1.2,1.2);
+  -o-transform:scale(1.2,1.2);
+  -webkit-transition-duration:0.5s;
+  transition-duration: 1.5s;
+}
+img{
+  transition-duration: 1.5s;
+}
+

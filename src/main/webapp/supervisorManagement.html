@@ -1,0 +1,372 @@
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%> -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>服装生产管理系统</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .searchSupervisor{
+            height: 32px;
+            border-radius: 8px;
+            padding: 6px 8px;
+            line-height: 22px;
+            margin: 0 10px 40px 12px;
+        }
+        .searchSupervisorBtn{
+            margin: 0;
+        }
+        .operationSpvr{
+            width: 170px;
+        }
+        .operationSpvr > button{
+            margin: 0px;
+        }
+        .spvrNametable {
+            width: 300px;
+        }
+        .modifySpvrTd{
+            width:40px;
+            margin: 0px;
+            text-align: center;
+        }
+    /*    .modifySpvrTd{
+            width
+        }*/
+    </style>
+
+  </head>
+
+<body>
+    <!--下面是顶部导航栏的代码-->
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">服装生产管理系统</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="supervisorManagement.html">主管账户管理</a></li>
+                <li><a href="authorityManagement.html">主管权限管理</a></li>
+<!--                 <li><a href="prodctionMonitor.html">生产进度监控</a></li> -->
+            </ul>
+            <a class="ys-nav-right navbar-right" href="#" data-toggle="modal" data-target="#exit-modal">退出</a>
+            <a class="ys-nav-right navbar-right" href="personalCenter.html">个人中心</a>
+        </div>
+    </nav>
+
+    <!-- 模块功能 -->
+    <div class="container-fluid wrap">  
+        <div class="row">
+            <!-- 左侧子功能导航栏--> 
+
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li class="active"><a href="#">主管账户管理</a></li>
+                </ul>
+                <ul class="nav nav-sidebar myTab" role="tablist">
+                    <li class="active"><a href="#first"  role="tab" data-toggle="tab">新建主管</a></li>
+                    <li><a href="#second" role="tab" data-toggle="tab">查询主管</a></li>
+                    <li><a href="#third" role="tab" data-toggle="tab">修改主管信息</a></li>
+                    <li><a href="#forth" role="tab" data-toggle="tab">重置主管密码</a></li>
+                    <!-- <li><a href="#pwdQuestion" role="tab" data-toggle="tab">密保问题</a></li> -->
+                </ul>
+               <!--  <ul class="nav nav-sidebar">
+                    <li><a href="#">设置</a></li>
+                    <li><a href="#">帮助</a></li>
+                </ul> -->
+            </div>
+            <!-- 右侧操作区 -->
+            <div class="tab-content col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <div class="tab-pane active " id="first">
+                    <h1 class="page-header ">新建主管账户</h1>
+                    <form class="personalInfoForm addSpvrForm" action="">
+                        <div class="row">
+                            <label>用户名</label>
+                            <input type="text" name="userName" class="userName" placeholder="用户名" required>
+                            <label>姓名</label>
+                            <input type="text" name="name" class="name" placeholder="姓名" required>
+                        </div>
+                        <div class="row">
+                            <label>账户类型</label>
+                            <input type="text" name="userType" class="userType" placeholder="账户类型" required>
+                            <label>公司职位</label>
+                            <input type="text" name="position" class="position" placeholder="公司职位" required>
+                        </div>
+                        <div class="row">
+                            <label>电话</label>
+                            <input type="text" name="tel" class="tel" placeholder="电话" required>
+                            <label>邮箱</label>
+                            <input type="text" name="email" class="email" placeholder="邮箱" required>
+                        </div>
+                        <div class="row">
+                            <label>生日</label>
+                            <input type="date" name="birthday" class="birthday" placeholder="生日" required>
+                            <label>籍贯</label>
+                            <input type="text" name="hometown" class="hometown" placeholder="籍贯" required>
+                        </div>
+                        <div class="row withtextarea-row">
+                            <label class="status-label">账户状态</label>
+                            <input type="text" name="status" class="status" placeholder="状态" required>
+                            <label class="address-label">地址</label>
+                            <textarea name="address" class="address" placeholder="地址" required></textarea>
+                        </div>
+                        <div class="row">
+                            <button class="btn btn-primary addSpvrSubmit" type="submit">保存</button>
+                        </div>
+                    </form> 
+                    <!-- <div class="row">
+                        <label></label>
+                        <input type="text" name="" id="" placeholder="" readonly>
+                    </div> --> 
+                </div>
+                <div class="tab-pane" id="second">
+                    <!-- <form class="pwdChangeForm">
+                        <h1 class="page-header ">查询主管</h1>
+                        <div class="row">
+                            <label>原密码</label>
+                            <input type="text" name="userName" id="userName" placeholder="请输入原密码" >
+                        </div>
+                        <div class="row">
+                            <label>新密码</label>
+                            <input type="text" name="name" id="name" placeholder="请输入新密码" >
+                        </div>
+                        <div class="row">
+                            <label>确认新密码</label>
+                            <input type="text" name="name" id="name" placeholder="请再次输入新密码" >
+                        </div>
+                        <button class="btn btn-primary">确认修改</button>
+                    </form> -->
+                    <h1 class="page-header ">查询主管</h1>
+                    <div class="row">
+                       <input type="text" placeholder="请输入主管姓名" class="searchSupervisor searchDetailSpvr" />
+                       <button class="btn btn-primary searchSupervisorBtn searchDetailSpvrBtn">查询</button>
+                    </div>
+                    <table class="table table-bordered table-hover table-striped table-condensed supervisorTable">
+                        <thead>
+                            <tr>
+                                <th>帐户</th>
+                                <th>姓名</th>
+                                <th>公司职位</th>
+                                <th>电话</th>
+                                <th>邮箱</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                            <tr class='template searchSpvrTrTempl'>
+                                <td>{{帐户}}</td>
+                                <td>{{姓名}}</td>
+                                <td>{{公司职位}}</td>
+                                <td>{{电话}}</td>
+                                <td>{{邮箱}}</td>
+                                <td>{{状态}}</td>
+                                <td class="operationSpvr">
+                                    <button class="btn btn-default btn-primary btn-sm checkSpvrInfo" data-username="{{帐户}}">
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;详细信息
+                                    </button>
+                                    <button class="btn btn-default btn-primary btn-sm editSpvrInfo" data-username="{{帐户}}">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;修改
+                                    </button>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>张三</td>
+                                <td>张三</td>
+                                <td>裁床车间主管</td>
+                                <td>18814122333</td>
+                                <td>764657283@qq.com</td>
+                                <td>在职</td>
+                                <td class="operationSpvr">
+                                    <button class="btn btn-default btn-primary btn-sm checkSpvrInfo" data-username="张三">
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;详细信息
+                                    </button>
+                                    <button class="btn btn-default btn-primary btn-sm editSpvrInfo" data-username="张三">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;修改
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>李四</td>
+                                <td>李四</td>
+                                <td>流水线主管</td>
+                                <td>18814122776</td>
+                                <td>268637283@qq.com</td>
+                                <td>在职</td>
+                                <td class="operationSpvr">
+                                    <button class="btn btn-default btn-primary btn-sm ">
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;详细信息
+                                    </button>
+                                    <button class="btn btn-default btn-primary btn-sm ">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;修改
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>王五</td>
+                                <td>王五</td>
+                                <td>流水线主管</td>
+                                <td>18814122222</td>
+                                <td>764657283@qq.com</td>
+                                <td>离职</td>
+                                <td class="operationSpvr">
+                                    <button class="btn btn-default btn-primary btn-sm ">
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;详细信息
+                                    </button>
+                                    <button class="btn btn-default btn-primary btn-sm ">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;修改
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <form class="personalInfoForm spvrInfo hide" style="margin-top:40px;" action="">
+                        <div class="row">
+                            <label>用户名</label>
+                            <input type="text" name="userName" class="userName" placeholder="用户名" value="{{username}}">
+                            <label>姓名</label>
+                            <input type="text" name="name" class="name" placeholder="姓名" value="{{name}}">
+                        </div>
+                        <div class="row">
+                            <label>账户类型</label>
+                            <input type="text" name="userType" class="userType" placeholder="账户类型" value="{{userType}}">
+                            <label>公司职位</label>
+                            <input type="text" name="position" class="position" placeholder="公司职位" value="{{position}}">
+                        </div>
+                        <div class="row">
+                            <label>电话</label>
+                            <input type="text" name="tel" class="tel" placeholder="电话" value="{{tel}}">
+                            <label>邮箱</label>
+                            <input type="text" name="email" class="email" placeholder="邮箱" value="{{email}}">
+                        </div>
+                        <div class="row">
+                            <label>生日</label>
+                            <input type="date" name="birthday" class="birthday" placeholder="生日" value="{{birthday}}">
+                            <label>籍贯</label>
+                            <input type="text" name="hometown" class="hometown" placeholder="籍贯" value="{{hometown}}">
+                        </div>
+                        <div class="row withtextarea-row">
+                            <label class="status-label">账户状态</label>
+                            <input type="text" name="status" class="status" placeholder="状态" value="{{status}}">
+                            <label class="address-label">地址</label>
+                            <textarea name="address" class="address" placeholder="地址" value="{{address}}"></textarea>
+                        </div>
+                    </form>            
+                </div>
+                <div class="tab-pane" id="third">
+                    <h1 class="page-header ">修改主管信息</h1>
+                    <div class="row">
+                       <input type="text" placeholder="请输入主管姓名" class="searchEditSupervisor searchSupervisor" />
+                       <button class="btn btn-primary searchSupervisorBtn searchEditSupervisorBtn">搜索</button>
+                    </div>
+                    <div >
+                        <div class="col-sm-3 col-md-3">
+                            <table class="table table-bordered table-hover table-striped table-condensed spvrNametable">
+                                <thead>
+                                    <tr>
+                                        <th>账户</th>
+                                        <th>姓名</th>
+                                        <th>修改</th>
+                                    </tr>
+                                    <tr class="template searchEditSpvrTempl">
+                                        <td>{{帐户}}</td>
+                                        <td>{{姓名}}</td>
+                                        <td class="modifySpvrTd">
+                                            <a class="doEdit" data-username="{{帐户}}">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>张三</td>
+                                        <td>张三</td>
+                                        <td class="modifySpvrTd">
+                                            <a class="doEdit" data-username="张三">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td>李四</td>
+                                        <td>李四</td>
+                                        <td class="modifySpvrTd">
+                                            <a>
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;
+                                            </a>
+                                        </td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-1 modifyInfoDiv">
+                            <form class="personalInfoForm editSpvrForm" action="">
+                                <div class="row">
+                                    <label>用户名</label>
+                                    <input type="text" name="userName" class="userName" placeholder="李四" required>
+                                    <label>姓名</label>
+                                    <input type="text" name="name" class="name" placeholder="李四" required>
+                                </div>
+                                <div class="row">
+                                    <label>公司职位</label>
+                                    <input type="text" name="position" class="position" placeholder="流水线主管" required>
+                                    <label class="status-label">账户状态</label>
+                                    <input type="text" name="status" class="status" placeholder="在职" required>
+                                </div>
+                                <div class="row">
+                                    <label>电话</label>
+                                    <input type="text" name="tel" class="tel" placeholder="18814122776" required>
+                                    <label>邮箱</label>
+                                    <input type="text" name="email" class="email" placeholder="764657283@qq.com" required>
+                                </div>
+                                <div class="row">
+                                    <label>生日</label>
+                                    <input type="date" name="birthday" class="birthday" placeholder="1980-01-01" required>
+                                    <label>籍贯</label>
+                                    <input type="text" name="hometown" class="hometown" placeholder="广东汕头" required>
+                                </div>
+                                <div class="row withtextarea-row">
+                                    <label class="address-label">地址</label>
+                                    <textarea name="address" class="address" placeholder="广东省汕头市濠江区青篮文明巷3号" required></textarea>
+                                </div>
+                                <div class="row">
+                                    <button class="btn btn-primary editSpvrFormSubmit">确认修改</button>
+                                    <!-- <button class="btn btn-primary">取消</button> -->
+                                </div>
+                            </form>       
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="forth">
+                    
+                </div>             
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/supervisorManagement.js"></script>
+</body>
+</html>

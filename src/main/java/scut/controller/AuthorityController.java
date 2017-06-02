@@ -11,4 +11,6 @@ import scut.service.AdminService;
 public class AuthorityController {
     @Autowired
     private AdminService adminService;
+
+
 }
