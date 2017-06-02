@@ -9,4 +9,5 @@ doc/
 clothes/.idea/
 *.iml
 clothes/target/
+clothes/src/main/resources/application.yml
 
