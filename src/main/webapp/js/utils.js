@@ -38,7 +38,8 @@ var utils = (function(){
 			console.log(templ);
 			// 生成元素节点，并返回
 			var dom = document.createElement("div");
-			dom.innerHTML = templ;
+			// dom.innerHTML = templ;
+			$(dom).html(templ.toString());
 			return dom.childNodes[0];
 		},
 		addCookie: function(name,value,day) { 

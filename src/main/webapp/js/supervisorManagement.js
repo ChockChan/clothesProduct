@@ -25,68 +25,130 @@ $(function () {
     	searchSupervisor(text);
     });
 
-    // 查看主管详细资料
-    $('.checkSpvrInfo').click(function(e){
-    	var username = $(this).attr('data-username');
-    	// var templ = utils.getTempl('.addSpvrForm');
-    	var userInfo;
-    	var formDom = $('.'+formClass)[0];
+    $('.supervisorTable').click(function(e){
+        var target = e.target || e.srcElement;
 
-    	for(var i=0,len=info.length;i<len;i++){
-    		if(info[i].username == username){
-    			userInfo = info[i];
-    			break;
-    		}
-    	}
+        if(target.className.match('checkSpvrInfo')){
+            var username = $(this).attr('data-username');
+            // var templ = utils.getTempl('.addSpvrForm');
+            var userInfo;
+            var formDom = $('.'+formClass)[0];
 
-    	// formDom = utils.createDomByTempl(
-    	// 	templ,
-    	// 	{
-    	// 		'{{username}}': userInfo.username,
-    	// 		'{{name}}': userInfo.name,
-    	// 		'{{userType}}': userInfo.userType,
-    	// 		'{{position}}': userInfo.position,
-    	// 		'{{tel}}': userInfo.tel,
-    	// 		'{{email}}': userInfo.email,
-    	// 		'{{birthday}}': userInfo.birthday,
-    	// 		'{{address}}': userInfo.address,
-    	// 		'{{status}': userInfo.status,
-    	// 		'{{hometown}}': userInfo.hometown
-    	// 	}
-    	// );
+            for(var i=0,len=info.length;i<len;i++){
+                if(info[i].username == username){
+                    userInfo = info[i];
+                    break;
+                }
+            }
 
-    	formDom.innerHTML = formDom.innerHTML
-    							.replace('{{username}}', userInfo.username)
-				    			.replace('{{name}}', userInfo.name)
-				    			.replace('{{userType}}', userInfo.userType)
-				    			.replace('{{position}}', userInfo.position)
-				    			.replace('{{tel}}', userInfo.tel)
-				    			.replace('{{email}}', userInfo.email)
-				    			.replace('{{birthday}}', userInfo.birthday)
-				    			.replace('{{address}}', userInfo.address)
-				    			.replace('{{status}', userInfo.status)
-				    			.replace('{{hometown}}', userInfo.hometown);
+            // formDom = utils.createDomByTempl(
+            //  templ,
+            //  {
+            //      '{{username}}': userInfo.username,
+            //      '{{name}}': userInfo.name,
+            //      '{{userType}}': userInfo.userType,
+            //      '{{position}}': userInfo.position,
+            //      '{{tel}}': userInfo.tel,
+            //      '{{email}}': userInfo.email,
+            //      '{{birthday}}': userInfo.birthday,
+            //      '{{address}}': userInfo.address,
+            //      '{{status}': userInfo.status,
+            //      '{{hometown}}': userInfo.hometown
+            //  }
+            // );
 
-    	$(formDom).show();
+            formDom.innerHTML = formDom.innerHTML
+                                    .replace('{{username}}', userInfo.username)
+                                    .replace('{{name}}', userInfo.name)
+                                    .replace('{{userType}}', userInfo.userType)
+                                    .replace('{{position}}', userInfo.position)
+                                    .replace('{{tel}}', userInfo.tel)
+                                    .replace('{{email}}', userInfo.email)
+                                    .replace('{{birthday}}', userInfo.birthday)
+                                    .replace('{{address}}', userInfo.address)
+                                    .replace('{{status}', userInfo.status)
+                                    .replace('{{hometown}}', userInfo.hometown);
+
+            $(formDom).show();
+        }else if(target.className.match('editSpvrInfo')){
+            var username = $(this).attr('data-username');
+            var userInfo;
+
+            for(var i=0,len=info.length;i<len;i++){
+                if(info[i].username == username){
+                    userInfo = info[i];
+                    break;
+                }
+            }
+            initEditSpvrForm( userInfo );
+
+            // 跳转至修改资料界面
+            $('.myTab a[href="#third"]').click();
+        }
     });
+
+    // 查看主管详细资料
+    // $('.checkSpvrInfo').click(function(e){
+    // 	var username = $(this).attr('data-username');
+    // 	// var templ = utils.getTempl('.addSpvrForm');
+    // 	var userInfo;
+    // 	var formDom = $('.'+formClass)[0];
+
+    // 	for(var i=0,len=info.length;i<len;i++){
+    // 		if(info[i].username == username){
+    // 			userInfo = info[i];
+    // 			break;
+    // 		}
+    // 	}
+
+    // 	// formDom = utils.createDomByTempl(
+    // 	// 	templ,
+    // 	// 	{
+    // 	// 		'{{username}}': userInfo.username,
+    // 	// 		'{{name}}': userInfo.name,
+    // 	// 		'{{userType}}': userInfo.userType,
+    // 	// 		'{{position}}': userInfo.position,
+    // 	// 		'{{tel}}': userInfo.tel,
+    // 	// 		'{{email}}': userInfo.email,
+    // 	// 		'{{birthday}}': userInfo.birthday,
+    // 	// 		'{{address}}': userInfo.address,
+    // 	// 		'{{status}': userInfo.status,
+    // 	// 		'{{hometown}}': userInfo.hometown
+    // 	// 	}
+    // 	// );
+
+    // 	formDom.innerHTML = formDom.innerHTML
+    // 							.replace('{{username}}', userInfo.username)
+				//     			.replace('{{name}}', userInfo.name)
+				//     			.replace('{{userType}}', userInfo.userType)
+				//     			.replace('{{position}}', userInfo.position)
+				//     			.replace('{{tel}}', userInfo.tel)
+				//     			.replace('{{email}}', userInfo.email)
+				//     			.replace('{{birthday}}', userInfo.birthday)
+				//     			.replace('{{address}}', userInfo.address)
+				//     			.replace('{{status}', userInfo.status)
+				//     			.replace('{{hometown}}', userInfo.hometown);
+
+    // 	$(formDom).show();
+    // });
 
     // 修改主管资料-- 资料填充及跳转
-    $('.editSpvrInfo').click(function(e){
-    	// 初始化修改表单资料
-    	var username = $(this).attr('data-username');
-    	var userInfo;
+    // $('.editSpvrInfo').click(function(e){
+    // 	// 初始化修改表单资料
+    // 	var username = $(this).attr('data-username');
+    // 	var userInfo;
 
-    	for(var i=0,len=info.length;i<len;i++){
-    		if(info[i].username == username){
-    			userInfo = info[i];
-    			break;
-    		}
-    	}
-    	initEditSpvrForm( userInfo );
+    // 	for(var i=0,len=info.length;i<len;i++){
+    // 		if(info[i].username == username){
+    // 			userInfo = info[i];
+    // 			break;
+    // 		}
+    // 	}
+    // 	initEditSpvrForm( userInfo );
 
-    	// 跳转至修改资料界面
-    	$('.myTab a[href="#third"]').click();
-    });
+    // 	// 跳转至修改资料界面
+    // 	$('.myTab a[href="#third"]').click();
+    // });
 
     // 保存修改 主管资料
     $('.editSpvrForm input').keydown(function(e){
@@ -127,7 +189,6 @@ $(function () {
     function addNewSupervisor(){
     	var formData = $('.addSpvrForm').serializeObject();
 
-        console.log(formData);
     	for(var key in formData){
     		if(formData[key]===''){
     			console.log(key+' is undefined');
@@ -136,7 +197,7 @@ $(function () {
     	}
 
     	utils.doPost(
-    		'/supervisor/add',
+    		'',
     		JSON.stringify(formData),
     		function success(data){
     			if(data.return_code==0) {
@@ -153,11 +214,11 @@ $(function () {
     // 查找主管
     function searchSupervisor( text ){
     	utils.doGet(
-    		'/supervisor/get?name='+text,
+    		'...?name='+text,
     		function success(data){
     			if(data.return_code==0) {
-    				//获取模版代码 
-		          var templ = utils.getTempl( '.searchSpvrTrTempl');
+    				// 获取模版代码 
+		          var templ = utils.getTempl( '.template.searchSpvrTrTempl');
 		          var spvrTable = $('.supervisorTable tbody');
 		          if(Array.isArray(data.data)){
 		          	// 清空表格
@@ -166,18 +227,18 @@ $(function () {
 		          	info = data.data;
 		          	data.data.forEach(function(item,index){
 		          		// 按模版初始化表格行
-		          		spvr.append(utils.createDomByTempl(
-		          			templ,
-		          			{
-		          				'{{帐户}}':item.username,
+		          		spvrTable.append(utils.createDomByTempl(
+                            templ,
+                            {
+                                '{{帐户}}':item.username,
                                 '{{姓名}}':item.name,
                                 '{{公司职位}}':item.position,
                                 '{{电话}}':item.tel,
                                 '{{邮箱}}':item.email,
                                 '{{状态}}':item.status,
-                                ' template':''
-		          			}
-		          		));
+                                'template':''
+                            }
+                        ));
 		          	});
 		          }
 		        }
@@ -214,7 +275,7 @@ $(function () {
     	}
 
     	utils.doPost(
-    		'/supervisor/update',
+    		'',
     		JSON.stringify(formData),
     		function success(data){
     			if(data.return_code==0) {
@@ -230,7 +291,7 @@ $(function () {
     // 查找可修改主管
     function searchEditSupervisor(text){
     	utils.doGet(
-    		'/supervisor/get?name='+text,
+    		'...?name='+text,
     		function success(data){
     			if(data.return_code==0) {
     				//获取模版代码 

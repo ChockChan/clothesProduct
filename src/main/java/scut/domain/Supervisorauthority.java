@@ -9,7 +9,9 @@ import javax.persistence.*;
 @Entity
 @Table(name="supervisorauthority")
 public class Supervisorauthority {
-
+    @Id
+    @GeneratedValue
+    private Long supervisorauthorityId;
 
     private Long supervisorId;
     @Column(columnDefinition="tinyint(1) default 0")
