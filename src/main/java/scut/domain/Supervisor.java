@@ -1,9 +1,6 @@
 package scut.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -17,14 +14,20 @@ public class Supervisor {
     private Long supervisorId;
 
     private String password;
-    private String username;
+    private String userName;
     private String name;
     private String position;
     private String email;
     private String address;
     private String tel;
+    @Temporal(TemporalType.DATE)
     private Date birthday;
     private String hometown;
+    private String status;
+    private String userType;
+    @OneToOne(cascade={CascadeType.ALL})
+    @JoinColumn(name="supervisorId", unique = true)
+    private Supervisorauthority supervisorauthority;
 
     public Long getSupervisorId() {
         return supervisorId;
@@ -42,12 +45,12 @@ public class Supervisor {
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getName() {
@@ -106,12 +109,36 @@ public class Supervisor {
         this.hometown = hometown;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    public Supervisorauthority getSupervisorauthority() {
+        return supervisorauthority;
+    }
+
+    public void setSupervisorauthority(Supervisorauthority supervisorauthority) {
+        this.supervisorauthority = supervisorauthority;
+    }
+
     @Override
     public String toString() {
         return "Supervisor{" +
                 "supervisorId=" + supervisorId +
                 ", password='" + password + '\'' +
-                ", username='" + username + '\'' +
+                ", userName='" + userName + '\'' +
                 ", name='" + name + '\'' +
                 ", position='" + position + '\'' +
                 ", email='" + email + '\'' +
@@ -119,6 +146,9 @@ public class Supervisor {
                 ", tel='" + tel + '\'' +
                 ", birthday=" + birthday +
                 ", hometown='" + hometown + '\'' +
+                ", status='" + status + '\'' +
+                ", userType='" + userType + '\'' +
+                ", supervisorauthority=" + supervisorauthority +
                 '}';
     }
 }
