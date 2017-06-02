@@ -26,7 +26,7 @@ public class Supervisor {
     private String status;
     private String userType;
     @OneToOne(cascade={CascadeType.ALL})
-    @JoinColumn(name="supervisorId", unique = true)
+    @JoinColumn(name="supervisorauthorityId", unique = true)
     private Supervisorauthority supervisorauthority;
 
     public Long getSupervisorId() {

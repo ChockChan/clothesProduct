@@ -197,7 +197,7 @@ $(function () {
     	}
 
     	utils.doPost(
-    		'',
+    		'/supervisor/add',
     		JSON.stringify(formData),
     		function success(data){
     			if(data.return_code==0) {
@@ -214,7 +214,7 @@ $(function () {
     // 查找主管
     function searchSupervisor( text ){
     	utils.doGet(
-    		'...?name='+text,
+    		'/supervisor/get?name='+text,
     		function success(data){
     			if(data.return_code==0) {
     				// 获取模版代码 
@@ -275,7 +275,7 @@ $(function () {
     	}
 
     	utils.doPost(
-    		'',
+    		'/supervisor/update',
     		JSON.stringify(formData),
     		function success(data){
     			if(data.return_code==0) {
@@ -291,7 +291,7 @@ $(function () {
     // 查找可修改主管
     function searchEditSupervisor(text){
     	utils.doGet(
-    		'...?name='+text,
+    		'/supervisor/get?name='+text,
     		function success(data){
     			if(data.return_code==0) {
     				//获取模版代码 

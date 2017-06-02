@@ -7,6 +7,8 @@ import scut.Application;
 import scut.dao.AdminDao;
 import scut.dao.SupervisorDao;
 import scut.domain.Admin;
+import scut.domain.Supervisor;
+import scut.domain.Supervisorauthority;
 
 import javax.persistence.Table;
 import java.util.Date;
@@ -42,7 +44,13 @@ public class TestJpa {
 
     @Test
     public void testQuery(){
-        System.out.println(supervisorDao.findByName("aa"));
+
+        Supervisor supervisor = new Supervisor();
+        Supervisorauthority supervisorauthority = new Supervisorauthority();
+        supervisor.setSupervisorauthority(supervisorauthority);
+        supervisor.setName("ff");
+        supervisorDao.save(supervisor);
+        System.out.println(supervisorDao.findByName("ff"));
 
     }
 

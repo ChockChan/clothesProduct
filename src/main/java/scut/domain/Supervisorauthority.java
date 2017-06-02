@@ -13,27 +13,18 @@ public class Supervisorauthority {
     @GeneratedValue
     private Long supervisorauthorityId;
 
-    private Long supervisorId;
-    @Column(columnDefinition="tinyint(1) default 0")
+
     private Boolean kaicai;
-    @Column(columnDefinition="tinyint(1) default 0")
-    private Boolean caichuang;
-    @Column(columnDefinition="tinyint(1) default 0")
-    private Boolean liushui;
-    @Column(columnDefinition="tinyint(1) default 0")
-    private Boolean gongpiao;
-    @Column(columnDefinition="tinyint(1) default 0")
-    private Boolean yuangong;
 
+    private Boolean caichuang = false;
 
-    public Long getSupervisorId() {
-        return supervisorId;
-    }
+    private Boolean liushui = false;
 
-    public void setSupervisorId(Long supervisorId) {
-        this.supervisorId = supervisorId;
-    }
+    private Boolean gongpiao = false;
 
+    private Boolean yuangong = false;
+
+    @Column(columnDefinition="tinyint(1) default 0", nullable = false)
     public Boolean getKaicai() {
         return kaicai;
     }
@@ -41,7 +32,7 @@ public class Supervisorauthority {
     public void setKaicai(Boolean kaicai) {
         this.kaicai = kaicai;
     }
-
+    @Column(columnDefinition="tinyint(1) default 0", nullable = false)
     public Boolean getCaichuang() {
         return caichuang;
     }
@@ -49,7 +40,7 @@ public class Supervisorauthority {
     public void setCaichuang(Boolean caichuang) {
         this.caichuang = caichuang;
     }
-
+    @Column(columnDefinition="tinyint(1) default 0", nullable = false)
     public Boolean getLiushui() {
         return liushui;
     }
@@ -57,7 +48,7 @@ public class Supervisorauthority {
     public void setLiushui(Boolean liushui) {
         this.liushui = liushui;
     }
-
+    @Column(columnDefinition="tinyint(1) default 0", nullable = false)
     public Boolean getGongpiao() {
         return gongpiao;
     }
@@ -65,7 +56,7 @@ public class Supervisorauthority {
     public void setGongpiao(Boolean gongpiao) {
         this.gongpiao = gongpiao;
     }
-
+    @Column(columnDefinition="tinyint(1) default 0", nullable = false)
     public Boolean getYuangong() {
         return yuangong;
     }
@@ -77,7 +68,7 @@ public class Supervisorauthority {
     @Override
     public String toString() {
         return "Supervisorauthority{" +
-                ", supervisorId=" + supervisorId +
+                ", supervisorauthorityId" + supervisorauthorityId+
                 ", kaicai=" + kaicai +
                 ", caichuang=" + caichuang +
                 ", liushui=" + liushui +
